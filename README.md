@@ -89,7 +89,7 @@ The stack is mainly used for short-term value preservation allowing for critical
 
 ### 4. Data Monitoring and Control Using Port-Based Simulation 
 
-The sensor input is loaded into the rax register. The value in rax is compared with the upper threshold if the level is greater then the program jumps to the high_level_alarm label under which the alarm is set off. The program compares the low threshold with the value in rax if the value in rax is lower than the minimum threshold of 20 the prigram jumps to the low_level_motor where the motor is switched on. Otherwise the program calls the normal_level function.
+The sensor input is loaded into the rax register. The value in rax is compared with the upper threshold if the level is greater then the program jumps to the high_level_alarm label under which the alarm is set off. The program compares the low threshold with the value in rax if the value in rax is lower than the minimum threshold of 20 the program jumps to the low_level_motor where the motor is switched on. Otherwise the program calls the normal_level function.
 
 The control register is used in the program. When the least significant bit is 0 the motor is off and when it is 1 the motor is on. Bit 1 on the control register is manipulated such that it is set to 1 when the water level is high in turn switching the alarm on, it is also set to 0 when the water level is low. Bit manipulation is carried out on the registers to clear the motor bits in the case of high water levels whereas the alarm bit is cleared out when water levels are low. rax, ~2 clears the alarm bit whereas rax, ~1 clears the motor bit.
 
